@@ -34,8 +34,8 @@ namespace GraphicShapeEditor.Views
         private Point _lastPoint;
         private bool _isDragging;
         private bool _isResizing;
-        private const double ResizeMargin = 24.0; // Расширили область!
-        private int? _activePointIndex = null; // Для перемещения узлов Безье
+        private const double ResizeMargin = 24.0;
+        private int? _activePointIndex = null; 
 
         static ShapeCanvas()
         {
@@ -52,12 +52,10 @@ namespace GraphicShapeEditor.Views
             if(e.NewValue is ObservableCollection<IShape> NewCollection)
                 NewCollection.CollectionChanged += OnFiguresCollectionChanged;
         }
-
         private void OnFiguresCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             InvalidateVisual();
         }
-
         public override void Render(DrawingContext context)
         {
             base.Render(context);
@@ -99,7 +97,6 @@ namespace GraphicShapeEditor.Views
                  _ => new RectangleGeometry(rect),
             };
         }
-
         private Geometry CreateBezierGeometry(IShape fig)
         {
             if (fig.Points == null || fig.Points.Length < 4)
@@ -202,7 +199,6 @@ namespace GraphicShapeEditor.Views
                 InvalidateVisual();
                 return;
             }
-
             if (_isResizing)
             {
                 _activeFigure.Width = Math.Max(10, _activeFigure.Width + deltaX);

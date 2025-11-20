@@ -26,12 +26,10 @@ namespace GraphicShapeEditor.ViewModels
             AddBezierCommand = new RelayCommand(AddBezier);
             DeleteCommand = new RelayCommand(DeleteShape, () => SelectedShape != null);
         }
-
         partial void OnSelectedShapeChanged(IShape? value)
         {
             DeleteCommand.NotifyCanExecuteChanged();
         }
-
         private static IBrush GetRandomBrush()
         {
             var rand = new Random(Guid.NewGuid().GetHashCode());
@@ -52,7 +50,6 @@ namespace GraphicShapeEditor.ViewModels
                 Fill = GetRandomBrush()
             });
         }
-
         private void AddEllipse()
         {
             Shapes.Add(new EllipseShape
@@ -62,7 +59,6 @@ namespace GraphicShapeEditor.ViewModels
                 Fill = GetRandomBrush()
             });
         }
-
         private void AddBezier()
         {
             Shapes.Add(new BezierCurveShape
@@ -70,7 +66,6 @@ namespace GraphicShapeEditor.ViewModels
                 Fill = GetRandomBrush()
             });
         }
-
         private void DeleteShape()
         {
             if (SelectedShape != null)

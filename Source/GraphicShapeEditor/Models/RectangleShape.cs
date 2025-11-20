@@ -2,7 +2,6 @@
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-
 namespace GraphicShapeEditor.Models
 {
     public partial class RectangleShape: ObservableObject, IShape

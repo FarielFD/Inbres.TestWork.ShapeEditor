@@ -1,7 +1,6 @@
 ﻿
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.Generic;
 using Avalonia;
 
 namespace GraphicShapeEditor.Models
