@@ -1,0 +1,57 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:GraphicShapeEditor.ViewModels"
+        xmlns:models="using:GraphicShapeEditor.Models"
+        xmlns:views="using:GraphicShapeEditor.Views"
+        mc:Ignorable="d" d:DesignWidth="520" d:DesignHeight="350"
+        x:Class="GraphicShapeEditor.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ShapesEditor">
+
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Background="Lavender" BorderBrush="Silver" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal" Margin="10" Spacing="8">
+                <Button Width="100" Height="32" Command="{Binding DeleteCommand}"
+                        Background="Crimson" Foreground="White"
+                        CornerRadius="6" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock Text="🗑️" FontSize="14" VerticalAlignment="Center"/>
+                        <TextBlock Text="Delete" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="130" Height="32" Command="{Binding AddRectangleCommand}"
+                        Background="LightSlateGray" Foreground="White"
+                        CornerRadius="6" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock Text="⬜" FontSize="13" VerticalAlignment="Center"/>
+                        <TextBlock Text="Rectangle" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="120" Height="32" Command="{Binding AddEllipseCommand}"
+                        Background="LightSlateGray" Foreground="White"
+                        CornerRadius="6" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock Text="⭕" FontSize="16" VerticalAlignment="Center"/>
+                        <TextBlock Text="Ellipse" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="120" Height="32" Command="{Binding AddBezierCommand}"
+                        Background="LightSlateGray" Foreground="White"
+                        CornerRadius="6" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock Text="〰" FontSize="16" VerticalAlignment="Center"/>
+                        <TextBlock Text="Bezier" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Background="Lavender">
+              <views:ShapeCanvas 
+                Figures="{Binding Shapes}"
+                SelectedFigure="{Binding SelectedShape, Mode=TwoWay}" />
+        </Border>
+    </Grid>
+</Window>
